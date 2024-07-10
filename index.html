@@ -338,75 +338,43 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
         <h2 class="title is-3">Evaluation</h2>
         <div class="content has-text-justified">
 
           <p style="font-size: 20px;">
-          <b>Image tasks.</b> We demonstrate the universality and effectiveness of GLEE 
-          model as an object-level visual foundation model, directly
-          applicable to various object-centric tasks while ensuring
-          state-of-the-art performance without needing fine-tuning.
+          <b>Object-level and Part-level tasks.</b> To endow our model with robust generalization capability, we perform joint
+          training on various datasets and evaluate its performance on both object-level and part-level tasks. We compare our 
+          model with specialist and generalist models to evaluate its performance on object-level data. Additionally, we contrast
+          it with VLPart to assess its performance on part-level datasets as well as the effectiveness of joint-training process 
+          on both types of datasets. PartGLEE significantly outperforms VLPart on both object-level and part-level tasks after
+          joint-training, while achieving comparable performance on object-level tasks compared with previous SOTA.
           </p>
-          <!-- <p style="font-size: 20px;">
-          <b>Zero-shot Transfer to Video Tasks. </b> The proposed GLEE
-          is capable of adapting to new data and even new tasks in
-          a zero-shot manner, without the need for additional finetuning. We evaluate its zero-shot capability on three largescale, large-vocabulary open-world video tracking datasets:
-          TAO, BURST, and LV-VIS. <span class="highlight">Notably, the GLEE here is from
-          the image-level joint training, which has not been exposed to
-          images from these three datasets nor trained on videolevel data.</span> Despite these constraints, GLEE achieves stateof-the-art performance that significantly exceeds existing
-          methodologies. 
-          </p> -->
-
-
-     
 
       <div class="image-container">
         <div class="image-box">
-          <img src="./static/images/imagetask.png" alt="Image 1">
-          <figcaption>Comparison of GLEE to recent specialist and generalist models on object-level image tasks.</figcaption>
+          <img src="./static/images/object-part-tasks.png" alt="Image 1">
+          <figcaption>Joint-Training Performance of PartGLEE.</figcaption>
         </div>
-        <!-- <div class="image-box">
-          <img src="./static/images/videotask.png" alt="Image 2">
-          <figcaption>Comparison of GLEE to recent specialist and generalist models on object-level video tasks in a zero-shot manner.</figcaption>
-        </div> -->
       </div>
 
       <br><br>
 
 
       <p style="font-size: 20px;">
-        <b>Data Scale.</b> Train GLEE-Pro with 10%,
-        20%, 50%, 100% of the training data to evaluate the performance on zero-shot transfer tasks, including TAO, BURST,
-        OVIS, and YTVIS. Increased sizes of training
-        datasets result in enhanced zero-shot performance across diverse downstream tasks. </p>
-      <p style="font-size: 20px;">  
-       <b>Serve as Foundation Model.</b> 
-       We substituted LISA vision backbone with a frozen, pretrained GLEE-Plus and fed the object queries from GLEE into LLAVA and remove decoder of
-    LISA. We directly dot product the output SEG tokens with
-    GLEE feature map to generate masks. After training for the same number of steps, our modified LISA-GLEE achieved comparable results to the original version, demonstrating the versatility of representations
-    from GLEE and its <span class="highlight">effectiveness in serving other models</span>.
+        <b>Performance on Traditional Object-Level Tasks.</b> To illustrate the versatility and effectiveness of our model, we further compare the performance of our model with recent 
+          specialist and generalist models on traditional object-level tasks. It turns out that our model achieves state-of-the-art 
+          performance on part-level tasks, while maintaining competitive performance on object-level tasks. </p>
 
-      </p>
+        <div class="image-container">
+          <div class="image-box">
+            <img src="./static/images/traditional-image-tasks.png" alt="Image 2">
+            <figcaption>Comparison between PartGLEE with recent specialist and generalist models on traditional object-level tasks.</figcaption>
+          </div>
+        </div>
+
       <br>
-
-
-      <div class="image-container">
-        <div class="image-box">
-          <img src="./static/images/scaleup_performance.png" alt="Image 1">
-          <figcaption>Data scaling. The performance of GLEE-Pro after training on 10%, 20%, 50%, 100%.</figcaption>
-        </div>
-        <div class="image-box">
-          <img src="./static/images/LISA.png" alt="Image 2">
-          <figcaption>The performance comparison of replacing SAM with
-GLEE in LISA, GLEE achieves the same effectiveness as SAM in
-extracting objects.</figcaption>
-        </div>
-      </div>
-
-
 
         </div>
       </div>
@@ -417,7 +385,12 @@ extracting objects.</figcaption>
 
 
 
- 
+ <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Visualization Results</h2>
+
+  </div>
+</section>
 
 
 
