@@ -240,10 +240,10 @@
                 alt="Interpolate start reference image."/>
       <h2 class="subtitle has-text-centered">
         <figcaption style="font-size: 14px;text-align: left;">
-          PartGLEE is a part-level foundation model for locating and identifying both objects and their consitute parts in an image.
-          Through a unified framework, PartGLEE is able to perform joint-training on datasets of different granularities,
-          transferring the strong generalization capability from object-level instances to parts.
-          It achieves  the state-of-the-art performance across various part-level tasks and obtain competitive results on object-level tasks.
+          PartGLEE is a part-level foundation model for locating and identifying both objects and their consitute parts within an image.
+          Through our proposed Q-Former architecture, PartGLEE is able to perform joint-training on datasets of different granularities,
+          transferring the strong generalization capability from object-level instances to their corresponding semantic parts.
+          It achieves the state-of-the-art performance across various part-level tasks and obtain competitive results on object-level tasks.
          </figcaption>
       </h2>
     </div>
@@ -259,21 +259,15 @@
         <div class="content has-text-justified">
 
           <p style="font-size: 20px;">
-            We present GLEE in this work, an object-level foundation model for locating and identifying objects in images and videos. 
-            Through a unified framework, GLEEaccomplishes detection, segmentation, tracking, grounding, 
-            and identification of arbitrary objects in the open world scenario for various object perception tasks. 
-            Adopting a cohesive learning strategy, 
-            GLEE acquires knowledge from diverse data sources with varying supervision levels to formulate general object representations, 
-            excelling in zero-shot transfer to new data and tasks. Specifically, we employ an image encoder, 
-            text encoder, and visual prompter to handle multi-modal inputs, 
-            enabling to simultaneously solve various object-centric downstream tasks while maintaining state-of-the-art performance.
-             Demonstrated through extensive training on over five million images from diverse benchmarks, 
-             GLEE exhibits remarkable versatility and improved generalization performance, efficiently tackling downstream tasks 
-             without the need for task-specific adaptation. By integrating large volumes of automatically labeled data, we further enhance its zero-shot 
-             generalization capabilities. Additionally, GLEE is capable of being integrated into Large Language Models, serving as a 
-             foundational model to provide universal object-level information for multi-modal tasks. 
-             We hope that the versatility and universality of our method will mark a significant step in the development of 
-             efficient visual foundation models for AGI systems.         </p>
+            We present PartGLEE, a part-level foundation model for locating and identifying both objects and parts in images.
+            Through a unified framework, PartGLEE accomplishes detection, segmentation, and grounding of instances at any 
+            granularity in the open world scenario. Specifically, we propose a Q-Former to construct the hierarchical 
+            relationship between objects and parts, parsing every object into corresponding semantic parts. 
+            By incorporating a large amount of object-level data, the hierarchical relationships can be extended, enabling 
+            PartGLEE to recognize a rich variety of parts. We conduct comprehensive studies to validate the effectiveness of 
+            our method, PartGLEE achieves the state-of-the-art performance across various part-level tasks and obtain 
+            competitive results on object-level tasks. Our further analysis indicates that the hierarchical cognitive ability 
+            of PartGLEE is able to facilitate a detailed comprehension in images for mLLMs. Code will be released.         </p>
         </div>
       </div>
     </div>
