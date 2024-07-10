@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="General Object Foundation Model for Images and Videos at Scale">
+  <meta name="keywords" content="Foundation Model, Object Perception, Video">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GLEE:General Object Foundation Model for Images and Videos at Scale</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <!-- <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"> -->
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/eye-fill.svg">
+  <!-- <link rel="stylesheet" href="./static/css/float.css"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Highlight Text Example</title>
+  <style>
+  .highlight {
+    color:  #d35400
+  }
+  </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Image Height with Equal Heights</title>
+  <style>
+    .image-container {
+      display: flex;  
+      flex-wrap: wrap;  
+      align-items: stretch;  
+    }
+
+    .image-box {
+      flex: 1; 
+      margin: 5px;  
+      display: flex;  
+      flex-direction: column; 
+    }
+
+    .image-box img {
+      width: 100%;  
+      height: auto;  
+      display: block; 
+    }
+
+    .image-box figcaption {
+      text-align: center;  
+      margin-top: auto;  
+    }
+  </style>
+
+
+  <title>Centered YouTube Video</title>
+  <style>
+      .video-container {
+          text-align: center;  
+      }
+      .video-iframe {
+          margin: auto;  
+          display: block; 
+      }
+  </style>
+
+
+</head>
+<body>
+  
+  
+
+ 
+ 
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> GLEE: General Object Foundation Model for Images and Videos at Scale</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://wjf5203.github.io/">Junfeng Wu</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://enjoyyi.github.io/">Yi Jiang</a><sup>2*</sup>,</span>
+            <span class="author-block">
+              <a href="https://qihao067.github.io/">Qihao Liu</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://shallowyuan.github.io/">Zehuan Yuan</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://vlrlab.aia.hust.edu.cn/">Xiang Bai</a><sup>1<math xmlns="http://www.w3.org/1998/Math/MathML"><mo>†</mo></math></sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://songbai.site/">Song Bai</a><sup>2<math xmlns="http://www.w3.org/1998/Math/MathML"><mo>†</mo></math></sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Huazhong University of Science and Technology,</span>
+            <span class="author-block"><sup>2</sup>ByteDance Inc.,</span>
+            <span class="author-block"><sup>3</sup>Johns Hopkins University</span>
+          </div>
+
+
+          
+          <div class="is-size-5 publication-authors">
+            CVPR 2024 Highlight
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">(<sup>*</sup>Equal Contribution,<sup><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>†</mo></math></sup>Correspondence)<sup></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2312.09158.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2312.09158"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- demo Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/Junfeng5/GLEE_demo" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="far fa-images"></i>
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="http://46fa6a7346679f7635.glee-vision.tech" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="far fa-images"></i>
+                  </span>
+                  <span>Demo(Faster)</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/FoundationVision/GLEE"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/PSVhfTPx0GQ"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/data_demo.png"
+                class="interpolation-image"
+                alt="Interpolate start reference image."/>
+      <h2 class="subtitle has-text-centered">
+        <figcaption style="font-size: 14px;text-align: left;">
+          GLEE is a general object foundation model for images and videos.
+          Jointly trained on over ten million images from various benchmarks with diverse levels of supervision, 
+          GLEE excels in a wide array of object-centric tasks while maintaining SOTA performance. 
+          It also showcases remarkable versatility and robust zero-shot transferability.
+         </figcaption>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- 
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+ 
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">  Abstract</h2>
+        <div class="content has-text-justified">
+
+          <p style="font-size: 20px;">
+            We present GLEE in this work, an object-level foundation model for locating and identifying objects in images and videos. 
+            Through a unified framework, GLEEaccomplishes detection, segmentation, tracking, grounding, 
+            and identification of arbitrary objects in the open world scenario for various object perception tasks. 
+            Adopting a cohesive learning strategy, 
+            GLEE acquires knowledge from diverse data sources with varying supervision levels to formulate general object representations, 
+            excelling in zero-shot transfer to new data and tasks. Specifically, we employ an image encoder, 
+            text encoder, and visual prompter to handle multi-modal inputs, 
+            enabling to simultaneously solve various object-centric downstream tasks while maintaining state-of-the-art performance.
+             Demonstrated through extensive training on over five million images from diverse benchmarks, 
+             GLEE exhibits remarkable versatility and improved generalization performance, efficiently tackling downstream tasks 
+             without the need for task-specific adaptation. By integrating large volumes of automatically labeled data, we further enhance its zero-shot 
+             generalization capabilities. Additionally, GLEE is capable of being integrated into Large Language Models, serving as a 
+             foundational model to provide universal object-level information for multi-modal tasks. 
+             We hope that the versatility and universality of our method will mark a significant step in the development of 
+             efficient visual foundation models for AGI systems.         </p>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<div class="video-container">
+  <!-- YouTube Video -->
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PSVhfTPx0GQ?si=896FMJOYVGSod8Fe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">🔥 Highlights</h2>
+        <div class="content has-text-justified">
+
+          <p style="font-size: 20px;">
+            1. We present GLEE, a general object-centric foundation model for images and videos. GLEE is capable of <span class="highlight">addressing a wide range of object-centric tasks simultaneously while maintaining state-of-the-art performance</span>.
+          </p>
+          <br>
+          <p style="font-size: 20px;">
+            2. We develop a multi-granularity joint supervision framework and a scalable training paradigm. The unified approach of GLEE supports multi-source data and enables <span class="highlight">joint training on over five million images</span> from various benchmarks with diverse supervision levels. This significantly facilitates the incorporation of additional manually or automatically annotated data, and <span class="highlight">simplifies the scaling of the dataset</span>.
+          </p>
+          <br>
+          <p style="font-size: 20px;">
+            3. GLEE demonstrates <span class="highlight">remarkable versatility and robust zero-shot transferability</span> across a spectrum of object-level image and video tasks. Furthermore, GLEE can provide the visual object-level information that modern LLMs currently lack, thus <span class="highlight">serving as a foundational component</span> for enhancing other architectures or models.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+
+          <p style="font-size: 20px;">
+            The proposed GLEE consists of an image encoder, a text encoder, a visual prompter, and an object decoder, as illustrated in Figure. 
+            The text encoder processes arbitrary descriptions related to the task, including object categories,
+            names in any form, captions about objects, and referring expressions. The visual prompter encodes user inputs such as points, 
+            bounding boxes, or scribbles during interactive segmentation into corresponding visual representations of target objects. 
+            Then they are integrated into a detector for extracting objects from images according to textual and visual input.          
+          </p>
+          
+        <div class="column is-centered has-text-centered">
+          <img src="./static/images/pipeline.png"
+                class="interpolation-image"
+                alt="Interpolate start reference image."/>
+                <figcaption style="font-size: 14px;text-align: left;">Framework of GLEE. The text encoder accepts textual descriptions in various forms from diverse data sources, including
+                  object categories, names, captions, and referring expressions. The visual prompter encodes points, bounding boxes, or scribbles into
+                  corresponding visual representations.The object decoder take them and image features to predict objects in images. </figcaption>
+        </div>
+
+
+        <p style="font-size: 20px;">
+        Based on the above designs, GLEE can be used to seamlessly unify a wide range of object perception tasks in images and videos, 
+        including object detection, instance segmentation, grounding, multi-target tracking (MOT), video instance segmentation (VIS), 
+        video object segmentation (VOS), interactive segmentation and tracking, and <span class="highlight">supports open-world/large-vocabulary image and video detection and segmentation tasks</span>.
+        A visual foundation model should be able to easily scale up the training data and achieve better generalization performance. 
+        Thanks to the unified training paradigm, the training data of GLEE can be scaled up at low cost
+        by introducing a large amount of automatically labeled data.
+        </p>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+ 
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">Evaluation</h2>
+        <div class="content has-text-justified">
+
+          <p style="font-size: 20px;">
+          <b>Image tasks.</b> We demonstrate the universality and effectiveness of GLEE 
+          model as an object-level visual foundation model, directly
+          applicable to various object-centric tasks while ensuring
+          state-of-the-art performance without needing fine-tuning.
+          </p>
+          <!-- <p style="font-size: 20px;">
+          <b>Zero-shot Transfer to Video Tasks. </b> The proposed GLEE
+          is capable of adapting to new data and even new tasks in
+          a zero-shot manner, without the need for additional finetuning. We evaluate its zero-shot capability on three largescale, large-vocabulary open-world video tracking datasets:
+          TAO, BURST, and LV-VIS. <span class="highlight">Notably, the GLEE here is from
+          the image-level joint training, which has not been exposed to
+          images from these three datasets nor trained on videolevel data.</span> Despite these constraints, GLEE achieves stateof-the-art performance that significantly exceeds existing
+          methodologies. 
+          </p> -->
+
+
+     
+
+      <div class="image-container">
+        <div class="image-box">
+          <img src="./static/images/imagetask.png" alt="Image 1">
+          <figcaption>Comparison of GLEE to recent specialist and generalist models on object-level image tasks.</figcaption>
+        </div>
+        <!-- <div class="image-box">
+          <img src="./static/images/videotask.png" alt="Image 2">
+          <figcaption>Comparison of GLEE to recent specialist and generalist models on object-level video tasks in a zero-shot manner.</figcaption>
+        </div> -->
+      </div>
+
+      <br><br>
+
+
+      <p style="font-size: 20px;">
+        <b>Data Scale.</b> Train GLEE-Pro with 10%,
+        20%, 50%, 100% of the training data to evaluate the performance on zero-shot transfer tasks, including TAO, BURST,
+        OVIS, and YTVIS. Increased sizes of training
+        datasets result in enhanced zero-shot performance across diverse downstream tasks. </p>
+      <p style="font-size: 20px;">  
+       <b>Serve as Foundation Model.</b> 
+       We substituted LISA vision backbone with a frozen, pretrained GLEE-Plus and fed the object queries from GLEE into LLAVA and remove decoder of
+    LISA. We directly dot product the output SEG tokens with
+    GLEE feature map to generate masks. After training for the same number of steps, our modified LISA-GLEE achieved comparable results to the original version, demonstrating the versatility of representations
+    from GLEE and its <span class="highlight">effectiveness in serving other models</span>.
+
+      </p>
+      <br>
+
+
+      <div class="image-container">
+        <div class="image-box">
+          <img src="./static/images/scaleup_performance.png" alt="Image 1">
+          <figcaption>Data scaling. The performance of GLEE-Pro after training on 10%, 20%, 50%, 100%.</figcaption>
+        </div>
+        <div class="image-box">
+          <img src="./static/images/LISA.png" alt="Image 2">
+          <figcaption>The performance comparison of replacing SAM with
+GLEE in LISA, GLEE achieves the same effectiveness as SAM in
+extracting objects.</figcaption>
+        </div>
+      </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+ 
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{wu2023GLEE,
+  author= {Junfeng Wu, Yi Jiang, Qihao Liu, Zehuan Yuan, Xiang Bai, Song Bai},
+  title = {General Object Foundation Model for Images and Videos at Scale},
+  year={2023},
+  eprint={2312.09158},
+  archivePrefix={arXiv}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+
+     <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This website is adapted from <a
+            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a <a rel="license"
+            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+      Commons Attribution-ShareAlike 4.0 International License</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
