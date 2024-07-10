@@ -310,32 +310,20 @@
         <div class="content has-text-justified">
 
           <p style="font-size: 20px;">
-            The proposed GLEE consists of an image encoder, a text encoder, a visual prompter, and an object decoder, as illustrated in Figure. 
-            The text encoder processes arbitrary descriptions related to the task, including object categories,
-            names in any form, captions about objects, and referring expressions. The visual prompter encodes user inputs such as points, 
-            bounding boxes, or scribbles during interactive segmentation into corresponding visual representations of target objects. 
-            Then they are integrated into a detector for extracting objects from images according to textual and visual input.          
+            PartGLEE is comprised of an image encoder, a Q-Former, two independent decoders and a text encoder, as illustrated in the Figure below. We propose a Q-Former to <span class="highlight">establish the 
+            hierarchical relationship between objects and parts</span>. A set of parsing queries are initialized in the Q-Former to interact with each object query, thus <span class="highlight">parsing them objects into 
+            their corresponding parts</span>. Our proposed Q-Former functions as a decomposer, extracting and representing parts from object queries. Hence, by training jointly on extensive object-level
+            datasets and limited hierarchical datasets which contain object-part correspondences, our Q-Former obtains <span class="highlight">strong generalization ability</span> to parse any novel object into its consitute parts.
           </p>
           
         <div class="column is-centered has-text-centered">
           <img src="./static/images/pipeline.png"
                 class="interpolation-image"
                 alt="Interpolate start reference image."/>
-                <figcaption style="font-size: 14px;text-align: left;">Framework of GLEE. The text encoder accepts textual descriptions in various forms from diverse data sources, including
-                  object categories, names, captions, and referring expressions. The visual prompter encodes points, bounding boxes, or scribbles into
-                  corresponding visual representations.The object decoder take them and image features to predict objects in images. </figcaption>
+                <figcaption style="font-size: 14px;text-align: left;">Framework of PartGLEE. The Q-Former takes each object query as input
+                  and output the corresponding part queries. These queries are then fed into the object decoder and the part decoder 
+                  respectively to generate hierarchical predictions. </figcaption>
         </div>
-
-
-        <p style="font-size: 20px;">
-        Based on the above designs, GLEE can be used to seamlessly unify a wide range of object perception tasks in images and videos, 
-        including object detection, instance segmentation, grounding, multi-target tracking (MOT), video instance segmentation (VIS), 
-        video object segmentation (VOS), interactive segmentation and tracking, and <span class="highlight">supports open-world/large-vocabulary image and video detection and segmentation tasks</span>.
-        A visual foundation model should be able to easily scale up the training data and achieve better generalization performance. 
-        Thanks to the unified training paradigm, the training data of GLEE can be scaled up at low cost
-        by introducing a large amount of automatically labeled data.
-        </p>
-
 
         </div>
       </div>
